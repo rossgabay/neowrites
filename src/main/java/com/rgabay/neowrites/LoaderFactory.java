@@ -1,8 +1,6 @@
 package com.rgabay.neowrites;
 
-import com.rgabay.neowrites.impl.HttpUnlabeledNodeLoader;
-import com.rgabay.neowrites.impl.LabeledNodeLoader;
-import com.rgabay.neowrites.impl.UnlabeledNodeLoader;
+import com.rgabay.neowrites.impl.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,11 +13,11 @@ import java.util.function.Supplier;
 public class LoaderFactory {
     private final static Map<String, Supplier<NodeLoader>> loaderMap = new HashMap<>();
 
-   Optional<NodeLoader> getNodeLoader(String nodeLoaderType, int threadNum, int nodesNum){
+   Optional<NodeLoader> getNodeLoader(String nodeLoaderType, int threadsNum, int nodesNum, String neoUrl){
 
-       loaderMap.put("LabeledNodeLoader", () -> new LabeledNodeLoader(threadNum, nodesNum));
-       loaderMap.put("UnlabeledNodeLoader", () -> new UnlabeledNodeLoader(threadNum, nodesNum));
-       loaderMap.put("HttpUnlabeledNodeLoader",() -> new HttpUnlabeledNodeLoader(threadNum, nodesNum));
+       loaderMap.put("LabeledNodeLoader", () -> new LabeledNodeLoader(nodesNum, threadsNum, neoUrl));
+       loaderMap.put("UnlabeledNodeLoader", () -> new UnlabeledNodeLoader(nodesNum, threadsNum, neoUrl));
+       loaderMap.put("HttpUnlabeledNodeLoader",() -> new HttpUnlabeledNodeLoader(nodesNum, threadsNum, neoUrl));
 
         Supplier<NodeLoader> nodeLoader = loaderMap.get(nodeLoaderType);
         return nodeLoader == null ? Optional.empty() : Optional.of(nodeLoader.get());

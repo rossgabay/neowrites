@@ -14,8 +14,11 @@ public class JCommanderSetup {
     private String nodeLoaderType;
 
     @Parameter(names =  "-t", description = "number of threads")
-    private Integer threadNum;
+    private Integer threadsNum;
 
     @Parameter(names = "-n", description = "nodes per thread")
     private Integer nodesNum;
+
+    @Parameter(names = "-u", description = "neo endpoint")
+    private String neoUrl;
 }

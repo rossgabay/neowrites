@@ -9,11 +9,20 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class LabeledNodeLoader extends NodeLoaderBase implements NodeLoader {
-    public LabeledNodeLoader(int nodesNum, int threadNum) {
-        super(nodesNum, threadNum);
+
+    private static final String LOAD_QUERY = "Create (x:TestLabeled {some_label:{i}})";
+
+    public LabeledNodeLoader(int nodesNum, int threadNum, String neoUrl) {
+        super(nodesNum, threadNum, neoUrl);
     }
 
+    @Override
+    public void loadNodes(String query, CommandType commandType) {
+        super.loadNodes(query, commandType);
+    }
+
+    @Override
     public void loadNodes() {
-        log.info("generating labeled nodes over bolt with threadNum:" + threadNum + " and nodesNum:" + nodesNum);;
+        this.loadNodes(LOAD_QUERY, CommandType.BOLT);
     }
 }
