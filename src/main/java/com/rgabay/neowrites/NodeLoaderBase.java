@@ -18,9 +18,9 @@ import java.util.concurrent.Executors;
 @NoArgsConstructor
 @Slf4j
 public class NodeLoaderBase {
-    protected int nodesNum;
-    protected  int threadsNum;
-    protected  String neoUrl;
+    private int nodesNum;
+    private  int threadsNum;
+    private  String neoUrl;
 
     public static enum CommandType {
         BOLT,
