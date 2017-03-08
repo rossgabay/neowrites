@@ -22,7 +22,7 @@ public class NodeLoaderBase {
     private  int threadsNum;
     private  String neoUrl;
 
-    public static enum CommandType {
+    public enum CommandType {
         BOLT,
         HTTP
     }
@@ -52,5 +52,7 @@ public class NodeLoaderBase {
         DateTime dtEnd = new DateTime();
         log.info("End Time : "+ dtEnd);
         log.info("Duration : "+ new Period(dtStart, dtEnd));
+
+        System.exit(0); // status code here is the indicator of how much I care about all threads terminating properly
     }
 }

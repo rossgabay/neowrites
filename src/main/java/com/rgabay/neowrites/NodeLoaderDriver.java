@@ -9,14 +9,12 @@ import java.util.IllegalFormatException;
 @Slf4j
 public class NodeLoaderDriver
 {
-    private static final  String DEFAULT_LOADER_TYPE = "UnlabeledNodeLoader";
-    //private static final  String DEFAULT_NEO_URL = "http://localhost:7474/db/data/transaction/commit";
-    private static final  String DEFAULT_NEO_URL = "bolt://localhost:7687";
-    private static final  int DEFAULT_THREADS_NUM = 10;
-    private static final  int DEFAULT_NODES_NUM = 50;
+    private static final  String DEFAULT_LOADER_TYPE = "HttpUnlabeledNodeLoader";
+    private static final  String DEFAULT_NEO_URL = "http://localhost:7474/db/data/transaction/commit";
+    private static final  int DEFAULT_THREADS_NUM = 100;
+    private static final  int DEFAULT_NODES_NUM = 10;
 
     public static void main( String... args ){
-
 
        JCommanderSetup jcommanderSetup = new JCommanderSetup();
 
