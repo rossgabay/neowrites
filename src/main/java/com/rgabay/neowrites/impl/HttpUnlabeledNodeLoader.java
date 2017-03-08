@@ -5,7 +5,6 @@ import com.rgabay.neowrites.NodeLoaderBase;
 import lombok.extern.slf4j.Slf4j;
 
 
-
 /**
  * Created by rossgabay on 3/5/17.
  */

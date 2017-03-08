@@ -22,7 +22,7 @@ public class NodeLoaderBase {
     private  int threadsNum;
     private  String neoUrl;
 
-    public static enum CommandType {
+    protected enum CommandType {
         BOLT,
         HTTP
     }
