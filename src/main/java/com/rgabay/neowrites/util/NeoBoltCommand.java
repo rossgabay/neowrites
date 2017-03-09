@@ -28,5 +28,6 @@ public  class NeoBoltCommand implements Runnable {
         }
 
         session.close();
+        driver.close();
     }
 }
