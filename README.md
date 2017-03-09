@@ -8,8 +8,8 @@
 ##Params:
 - ```-l``` : which loader to use, default for async-http branch is ```HttpUnlabeledNodeLoader```
 - ```-u``` : which endpoint to hit (as in URL), asyn-http branch default is ```http://localhost:7474/db/data/transaction/commit```
-- ```-t``` : how many threads to spawn, default is 10
-- ```-n``` : how many nodes to write per thread, default is 50
+- ```-t``` : how many threads to spawn, default for async-http branch is 100
+- ```-n``` : how many nodes to write per thread, default for async-http branch is 10
 
 ##To build/launch:
 - clone the repo locally
