@@ -1,9 +1,9 @@
 # neowrites: test harness for high-volume unlabeled and unlabeled node writes to neo4j graph db
 
 ##There are 3 "Loaders" available:
-- UnlabeledNodeLoader - writes unlabeled nodes using bolt driver
-- LabeledNodeLoader - writes labeled nodes using bolt driver
-- HttpUnlabeledNodeLoader - writes unlabeled nodes via the neo4j HTTP endpoint (code in master branch uses Unirest client)
+- ```UnlabeledNodeLoader``` - writes unlabeled nodes using bolt driver
+- ```LabeledNodeLoader``` - writes labeled nodes using bolt driver
+- ```HttpUnlabeledNodeLoader``` - writes unlabeled nodes via the neo4j HTTP endpoint (code in master branch uses Unirest client)
 
 ##Params:
 - ```-l``` : which loader to use, default for master branch is ```UnlabeledNodeLoader```
