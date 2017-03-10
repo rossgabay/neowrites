@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class HttpUnlabeledNodeLoader extends NodeLoaderBase implements NodeLoader {
-    private static final String LOAD_QUERY = "Create (x:TestHttp)";
+    private static final String LOAD_QUERY = "Create (x)";
 
     public HttpUnlabeledNodeLoader(int nodesNum, int threadsNum, String neoUrl) {
 
