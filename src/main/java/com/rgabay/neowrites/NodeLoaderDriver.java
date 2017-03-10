@@ -25,7 +25,7 @@ public class NodeLoaderDriver
        int nodesNum = (jcommanderSetup.getNodesNum() == null) ?  DEFAULT_NODES_NUM : jcommanderSetup.getNodesNum();
        String neoUrl = (jcommanderSetup.getNeoUrl() == null) ?  DEFAULT_NEO_URL : jcommanderSetup.getNeoUrl();
 
-       log.info("loaderType: " + loaderType);
+       log.info("loaderType: {}" , loaderType);
 
        LoaderFactory loaderFactory = new LoaderFactory();
 

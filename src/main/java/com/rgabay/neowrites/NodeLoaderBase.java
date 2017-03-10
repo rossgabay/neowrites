@@ -33,7 +33,7 @@ public class NodeLoaderBase {
         ExecutorService executor = Executors.newFixedThreadPool(threadsNum);
         DateTime dtStart = new DateTime();
 
-        log.info("Start Time : "+  dtStart.toString());
+        log.info("Start Time : {}", dtStart.toString());
 
         DateTime dtEStart = new DateTime();
 
@@ -44,13 +44,13 @@ public class NodeLoaderBase {
         }
 
         DateTime dtEend = new DateTime();
-        log.info("Threads created in : "+ new Period(dtEStart, dtEend));
+        log.info("Threads created in : {} ", new Period(dtEStart, dtEend));
 
         executor.shutdown();
         while (!executor.isTerminated());
 
         DateTime dtEnd = new DateTime();
-        log.info("End Time : "+ dtEnd);
-        log.info("Duration : "+ new Period(dtStart, dtEnd));
+        log.info("End Time : {}", dtEnd);
+        log.info("Duration : {}",new Period(dtStart, dtEnd));
     }
 }
