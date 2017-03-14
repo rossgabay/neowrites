@@ -3,6 +3,8 @@ package com.rgabay.neowrites.util;
 import lombok.extern.slf4j.Slf4j;
 import org.neo4j.driver.v1.*;
 
+import java.util.stream.IntStream;
+
 /**
  * Created by rossgabay on 3/7/17.
  */
@@ -23,9 +25,11 @@ public  class NeoBoltCommand implements Runnable {
     public void run() {
         Session session = driver.session();
 
-        for (int i = 1; i < _nodesNum; i++) {
-            session.run(_query, Values.parameters("i", i) );
-        }
+        IntStream.range(0, _nodesNum)
+                .forEach(i -> {
+                    log.info("yo {}", i);
+                    session.run(_query, Values.parameters("i", i) );
+                });
 
         session.close();
         driver.close();

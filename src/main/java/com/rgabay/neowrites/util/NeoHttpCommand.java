@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.IntStream;
 
 import okhttp3.*;
 
@@ -52,13 +53,14 @@ public class NeoHttpCommand implements Runnable {
 
     public void run() {
 
-        for (int i = 0; i < _nodesNum; i++) {
-            try {
-                post();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        IntStream.range(0, _nodesNum)
+                .forEach(i -> {
+                    try {
+                        post();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
 
        try {
             lock.await();
