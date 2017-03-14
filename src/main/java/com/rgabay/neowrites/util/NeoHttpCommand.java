@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.json.Json;
 import javax.json.JsonObject;
+import java.util.stream.IntStream;
 
 /**
  * Created by rossgabay on 3/7/17.
@@ -31,13 +32,14 @@ public class NeoHttpCommand implements Runnable {
 
     public void run() {
 
-        for (int i = 0; i < this._nodesNum; i++) {
-            try {
-               post();
-            } catch (UnirestException e) {
-                log.error("Error communicating with the REST endpoint: " + e.getLocalizedMessage());
-            }
-        }
+        IntStream.range(0, _nodesNum)
+                .forEach(i -> {
+                    try {
+                        post();
+                    } catch (UnirestException e) {
+                        log.error("Error communicating with the REST endpoint: " + e.getLocalizedMessage());
+                    }
+                });
     }
 
     private void post() throws UnirestException{

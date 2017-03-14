@@ -10,6 +10,7 @@ import org.joda.time.Period;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.IntStream;
 
 /**
  * Created by rossgabay on 3/5/17.
@@ -37,11 +38,13 @@ public class NodeLoaderBase {
 
         DateTime dtEStart = new DateTime();
 
-        for (int i = 0; i < threadsNum; i++) {
+        IntStream.range(0, threadsNum)
+                .forEach(i -> {
+                    Runnable command = commandType.equals(CommandType.BOLT)? new NeoBoltCommand(nodesNum, neoUrl, query) :
+                            new NeoHttpCommand(nodesNum, neoUrl, query);
 
-            Runnable command = commandType.equals(CommandType.BOLT)? new NeoBoltCommand(nodesNum, neoUrl, query) : new NeoHttpCommand(nodesNum, neoUrl, query);
-            executor.execute(command);
-        }
+                    executor.execute(command);
+                });
 
         DateTime dtEend = new DateTime();
         log.info("Threads created in : {} ", new Period(dtEStart, dtEend));
