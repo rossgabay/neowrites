@@ -27,7 +27,6 @@ public  class NeoBoltCommand implements Runnable {
 
         IntStream.range(0, _nodesNum)
                 .forEach(i -> {
-                    log.info("yo {}", i);
                     session.run(_query, Values.parameters("i", i) );
                 });
 
