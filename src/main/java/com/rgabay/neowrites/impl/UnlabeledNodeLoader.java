@@ -12,6 +12,10 @@ public class UnlabeledNodeLoader extends NodeLoaderBase implements NodeLoader{
 
     private static final String LOAD_QUERY = "Create (x)";
 
+    //HACK to force locks on a REL update - only one rel in the graph
+   //private static final String LOAD_QUERY = "match ()-[r]->() set r.t = 10";
+
+
     public UnlabeledNodeLoader(int nodesNum, int threadNum, String neoUrl) {
         super(nodesNum, threadNum, neoUrl);
     }

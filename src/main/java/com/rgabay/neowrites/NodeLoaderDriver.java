@@ -11,8 +11,8 @@ public class NodeLoaderDriver
 {
     private static final  String DEFAULT_LOADER_TYPE = "HttpUnlabeledNodeLoader";
     private static final  String DEFAULT_NEO_URL = "http://localhost:7474/db/data/transaction/commit";
-    private static final  int DEFAULT_THREADS_NUM = 100;
-    private static final  int DEFAULT_NODES_NUM = 10;
+    private static final  int DEFAULT_THREADS_NUM = 1;
+    private static final  int DEFAULT_NODES_NUM = 1;
 
     public static void main( String... args ){
 
